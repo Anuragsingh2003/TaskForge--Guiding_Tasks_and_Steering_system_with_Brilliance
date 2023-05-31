@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Delete Task</h1>
+<p>Are you sure you want to delete "{{ task.tid }}"?</p> <!--remember by injecting or send task or form data using context dictonary we can directly use those power does not need to import its already loaded there by declearing in our views at last line retun , reqt ,. html fiel, context:context-->
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+  <a href="{% url 'manage_task' %}" class="btn btn-secondary">Cancel</a><!-- this urls is using direct func which is in views.py not from urls-->
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<form method="POST" enctype="multipart/form-data" id="task-form" style="color:white;">
+<!--imp to give form id there to target by js bcz html pg under div tg -->
+    {% csrf_token %}
+  {{ form.as_p }}<!--using powers of models through forms's models-->
+  <button type="submit" id="save" class="btn btn-primary">Create</button>
+</form>
+{% endblock body %}
+
+
+<!-- very imp if you want to transfer or save your page data info in db -->
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+  $('#task-form').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "{% url 'create_task' %}",
+      type: "POST",
+      data: $(this).serialize(),
+      success: function(response) {
+        $('#right_slidebar').html(response);
+        alert("Task created successfully!");
+        document.getElementById("task-form").reset(); 
+      }
+    });
+  });
+});
+</script>
+{% endblock extra_js %}

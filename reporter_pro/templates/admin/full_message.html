@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Message</title>
+</head>
+<body style="text-align:center;">
+    <h1 style="
+    color: tan;
+">Full Message</h1>
+    <div>
+        <p style="color:white;">{{ leave.Message|safe }}</p>
+    </div>
+</body>
+</html>
+{% endblock body %}

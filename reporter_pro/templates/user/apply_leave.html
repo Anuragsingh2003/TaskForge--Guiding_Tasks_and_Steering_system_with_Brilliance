@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<form method="POST" enctype="multipart/form-data" id="applyleave-form"> 
+    {% csrf_token %}
+    <!--using powers of models through forms's models-->
+    {{leaveForm.as_p}} <!-- coming or injected field in obj leaveform and from views edit_task--> 
+    <button type="submit">Post</button>
+  </form>
+
+
+{% endblock body %}
+
+<!-- very imp if you want to transfer or save your page data info in db -->
+<!--in url jquery use viewss name not url nm-->
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+  $('#applyleave-form').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "{% url 'create_leave' %}",
+      type: "POST",
+      data: $(this).serialize(),
+      success: function(response) {
+        $('#right_sidebar').html(response);
+        alert("leave Posted successfully!");
+        document.getElementById("applyleave-form").reset(); 
+      }
+    });
+  });
+});
+</script>
+{% endblock extra_js %}

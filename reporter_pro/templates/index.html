@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    .body-bg {
+        background-image: url('../static/pics/Hardware\ And\ Networking.jpg');
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;;
+        
+      }
+    </style>
+<body class= "body-bg">
+	<div class="container">
+        <h1 style="color:wheat;">Task Reporter</h1>
+		
+        <div class="row">
+            <div class="col-md-4 m-auto" id="mypg">
+            <center><h3 style="color:wheat;">Choose login Role ? </h3></center>
+            <div class="btn1">
+            <a href="/user_login" class="btn btn-success"style="text-align:center;">Employee Login</a>
+            <a href="/register" class="btn btn-warning"style="text-align:center;">Employee Registration</a>
+            <a href="/admin_login" class="btn btn-info" style="margin-left:25%;" >admin login</a>
+            </div>
+        </div>
+		</div>
+	</div>
+</body>
+    {% endblock body %}

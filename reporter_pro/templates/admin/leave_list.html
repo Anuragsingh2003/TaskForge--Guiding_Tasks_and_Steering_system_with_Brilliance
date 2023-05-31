@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leave applications list</title>
+</head>
+<body>
+    <center><h3 style="color:white;">All applied leaves here</h3></center>
+    <table class="table" style="background-color: whitesmoke; width: 75vw;">
+        <tr>
+            <th>s.no</th>
+            <th>leave id</th>
+            <th>user id</th>
+            <th>sub</th>
+            <th>message</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tbody>
+        {% for leave in  leaves %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ leave.lid }}</td>
+                <td>{{ leave.user }}</td>
+                <td>{{ leave.subject }}</td>
+                <td>
+                    <div class="leave-message">
+                        {% if leave.Message|length > 3 %}
+                            {{ leave.Message|truncatechars:3 }}
+                            <a href="{% url 'full_message' leave_id=leave.lid %}" class="show-full-message">read more..</a>
+                        {% else %}
+                            {{ leave.Message }}
+                        {% endif %}
+                    </div>
+                </td>
+                <td>{{ leave.status }}</td>
+                <td>
+                    <a href="{% url 'accept_leave' leave_id=leave.lid %}">accept</a> |
+                    <a href="{% url 'reject_leave' leave_id=leave.lid %}">reject</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock body %}

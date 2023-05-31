@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <center><h3 style="color:white;">All assigned tasks</h3></center>
+    <table class="table" style="background-color: whitesmoke; width: 75vw;">
+        <tr>
+            <th>s.no</th>
+            <th>Task id</th>
+            <th>user id</th>
+            <th>Desc</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ task.tid }}</td>
+            <td>{{ task.user }}</td>
+            <td>
+                <div class="full-desc" id="Desc-{{ task.tid }}">
+                    {% if task.desc|length > 40 %}
+                        {{ task.desc|truncatechars:40 }}
+                        <a href="#" class=" read-more" data-task-tid="{{ task.tid }}">read more..</a>
+                    {% else %}
+                        {{ task.desc }}
+                    {% endif %}
+                </div>
+            </td>
+            <td>{{ task.start_date }}</td>
+            <td>{{ task.end_date }}</td>
+            <td>{{ task.status }}</td>
+            <td>
+                <a href="{% url 'edit_task' task_id=task.tid %}">edit</a> |
+                <a href="{% url 'del_task' task_id=task.tid %}">del</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script>
+        $(document).ready(function(){
+            $(".read-more").click(function(event){
+                event.preventDefault();
+                var taskId = $(this).data("task-tid");
+                $("#Desc-" + taskId).load("/task_desc/" + taskId + "/");
+            });
+        });  
+    </script>
+{% endblock body %}

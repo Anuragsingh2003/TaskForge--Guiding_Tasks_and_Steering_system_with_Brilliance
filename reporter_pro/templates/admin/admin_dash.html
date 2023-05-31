@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<style>
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .link:hover {
+    background-color: wheat;
+    color: black;
+  }
+</style>
+
+
+
+<div class="row" id="header">
+    <div class="col-md-12">
+        <div class="col-md-4" style="display: inline-block;">
+            <h3 >Task Management System </h3>
+        </div>
+        <div class="col-md-6" style="display: inline-block; text-align: right;">
+            <b>Email :</b> {{user.emai}}</b>
+            <span style="margin-left: 25px;"><b>Name:</b> {{user.username}}</span>
+        </div>
+    </div>
+</div>
+<!--usr dashbrd header ensded-->
+
+
+<div class="row" >
+
+    <div class="col-md-2" id="left_sidebar">
+        <table class="table">
+            <tr>
+                <td style="text-align: center;">
+                    <a href="{% url 'admin_d' %}" type="button" id="admin_dashboard" class="link">dashbrd</a>
+            
+                </td>
+            </tr>
+
+            <tr>
+                    <td style="text-align: center;">
+                        <a type="button"  id="manage_task" class="link">manage task</a>
+                
+                    </td>
+                  </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <a type="button" id="create_task" class="link" >create_task</a>
+                
+                        </td>
+                      </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <a type="button" id="applied_status" class="link">Employee leaves</a>
+                     
+                            </td>
+                          </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <a href="/admin_login" type="button" id="logout" class="link">logout</a>
+                        
+                                </td>
+                              </tr>
+                            </table>
+    </div>
+
+ <!-- we used views fun url from urls.py in jquery line 3 bcz django c=based on mvt , we cant gavev direct html file-->          
+    <script>
+		
+      $(document).ready(function(){
+        $("#create_task").click(function(){
+          $("#right_slidebar").load("/create_task/");
+        });
+      });
+
+
+      $(document).ready(function(){
+        $("#manage_task").click(function(){
+          $("#right_slidebar").load("/manage_task/");
+        });
+      });
+
+
+      $(document).ready(function(){
+        $("#applied_status").click(function(){
+          $("#right_slidebar").load("/leave_list/");
+        });
+      });  
+    
+  </script>
+
+  
+        
+    
+    <div class="col-md-10" id="right_slidebar">
+      <h4 style="text-align: center; color:white;">Instructions for Admin</h4>
+      <marquee direction='up'>
+      <ul style="text-align: center; line-height: 3em; font-size: 1.2em; list-style-type:none; color:white;">
+          <li>1.all the emp should mark their attendence</li>
+          <li>2. every fdfg ffcgb fdhgfbf fdfggf fggf</li>
+          <li>3. fgfddgfg fgfb vbvbv ghfdhdf </li>
+          <li>4. fssgggsew ewrrere hjmhgj fgg rgr</li>
+      </ul>
+    </marquee>
+    </div>
+                            
+</div>
+
+
+           
+
+
+{% endblock body %}

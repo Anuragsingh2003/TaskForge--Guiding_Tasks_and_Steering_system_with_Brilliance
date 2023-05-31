@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<style>
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .link:hover {
+    background-color: wheat;
+    color: black;
+  }
+</style>
+
+<!--usr dashbrd header started-->
+
+<div class="row" id="header">
+    <div class="col-md-12">
+        <div class="col-md-4"  style="display: inline-block;">
+            <h3>Task Management System </h3>
+        </div>
+        <div class="col-md-6" style="display: inline-block; text-align: right;">
+          <b>Email :</b> {{ user.email }}</b>
+          <span style="margin-left: 25px;"><b>Name:</b> {{ request.session.username }}</span>
+      </div>
+    </div>
+</div>
+<!--usr dashbrd header ensded-->
+
+
+<div class="row" >
+
+    <div class="col-md-2" id="left_sidebar">
+        <table class="table">
+            <tr>
+                <td style="text-align: center;">
+                    <a href="" type="button" class ="link" id="">dashbrd</a>
+            </tr>
+                </td>
+
+                <tr>
+                    <td style="text-align: center;">
+                        <a type="button"  id= "updates_tasks" class="link">update task</a>
+                </tr>
+                    </td>
+                    <tr>
+                        <td style="text-align: center;">
+                            <a type="button" id="appyleave" class="link">apply leave</a>
+                    </tr>
+                        </td>
+                        <tr>
+                            <td style="text-align: center;">
+                                <a type="button" id="status_leave" class="link">leave status</a>
+                        </tr>
+                            </td>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <a href="/user_login" type="button" id="btn_lnk">logut</a>
+                            </tr>
+                                </td>
+                            </table>
+                            </div>
+                            
+
+                            <div class="col-md-10" id="right_sidebar">
+                                <h4 style="text-align: center; color:white;">Instructions for Employees</h4>
+                                <marquee direction='up'>
+                                <ul style="color:white; line-height: 3em; font-size: 1.2em; text-align: center;">
+                                    <li>1.all the employee's should mark their attendence daily</li>
+                                    <li>2.Everyone must complete the task assigned to them</li>
+                                    <li>3.Kindly share leave in well format and share only for valid reason </li>
+                                    <li>4.report tasks on time.........................</li>
+                                </marquee>
+                                </ul>
+
+
+                  <!-- jquery for load html file in div tg-->
+                  <!-- we used views fun url in urls.py in jquery line 3 bcz django c=based on mvt , we cant gavev direct html file-->
+                <!-- remember if used btn that after click it load data and logic in js so , necessary that btn or
+                link has no any href tg, if there href tg , remove it-->
+
+                                <script>
+		
+                                    $(document).ready(function(){
+                                      $("#updates_tasks").click(function(){
+                                        $("#right_sidebar").load("/user_tasks/");
+                                      });
+                                    });
+
+
+
+
+                                    $(document).ready(function(){
+                                        $("#appyleave").click(function(){
+                                          $("#right_sidebar").load("/leave_create/");
+                                        });
+                                      });
+
+                                      $(document).ready(function(){
+                                        $("#status_leave").click(function(){
+                                          $("#right_sidebar").load("/leave_status/");
+                                        });
+                                      });
+                                </script>
+
+
+
+</div>
+           
+
+
+{% endblock body %}

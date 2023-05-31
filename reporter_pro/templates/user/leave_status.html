@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My leave status</title>
+</head>
+<body>
+    <center><h3 style="color:white;">My leaves status</h3></center>
+    <table class="table" style="background-color: whitesmoke; width: 75vw;">
+        <tr>
+            <th>s.no</th>
+            <th>sub</th>
+            <th>message</th>
+            <th>Status</th>
+        </tr>
+        <tbody>
+        {% for leave in  leaves %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ leave.subject }}</td>
+                <td>
+                    {{ leave.Message }}
+                </td>
+                <td>{{ leave.status }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock body %}
