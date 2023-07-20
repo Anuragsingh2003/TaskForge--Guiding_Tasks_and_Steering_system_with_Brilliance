@@ -3,6 +3,10 @@
 ## Introduction
 The Task Management App is a web application built with Django, a high-level Python web framework. This app provides functionalities to manage tasks, user registration, user authentication, and leave application management. It allows users to create, update, and track their tasks, while administrators can manage tasks and leave applications.
 
+https://github.com/Anuragsingh2003/Task-Reporter-django/assets/117331687/a0674495-8392-4e76-8458-a0c95efe7dd5
+
+
+
 ## Features
 - **User Registration:** New users can register by providing a username and password. User registration is handled securely and efficiently.
 - **User Login:** Registered users can log in using their credentials.
@@ -65,12 +69,5 @@ The Task Management App is a web application built with Django, a high-level Pyt
     - `views.py`: View functions handling user requests and rendering templates.
 
 ## Conclusion
-
-
-
-
-https://github.com/Anuragsingh2003/Task-Reporter-django/assets/117331687/a0674495-8392-4e76-8458-a0c95efe7dd5
-
-
 
 The Task Management App is a powerful and user-friendly application built with Django. It provides a seamless experience for users to manage their tasks and leave applications efficiently. For additional details, please refer to the `readme.txt` file on the GitHub repository.
