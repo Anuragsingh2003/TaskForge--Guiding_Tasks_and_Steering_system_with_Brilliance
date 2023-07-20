@@ -42,7 +42,6 @@ The Task Management App is a web application built with Django, a high-level Pyt
 4. Administrators can access the admin dashboard by visiting the `/admin` URL and logging in with superuser credentials.
 5. Admins can create, manage, and delete tasks, as well as manage leave applications.
 
-![geeks](https://github.com/Anuragsingh2003/Task-Reporter-django/assets/117331687/70c9c0b5-75ab-4992-8f0b-9f1dc3651c4d)
 
 
 
@@ -66,4 +65,12 @@ The Task Management App is a web application built with Django, a high-level Pyt
     - `views.py`: View functions handling user requests and rendering templates.
 
 ## Conclusion
+
+
+
+
+https://github.com/Anuragsingh2003/Task-Reporter-django/assets/117331687/a0674495-8392-4e76-8458-a0c95efe7dd5
+
+
+
 The Task Management App is a powerful and user-friendly application built with Django. It provides a seamless experience for users to manage their tasks and leave applications efficiently. For additional details, please refer to the `readme.txt` file on the GitHub repository.
