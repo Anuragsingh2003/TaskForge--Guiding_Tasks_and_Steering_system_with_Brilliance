@@ -1,4 +1,4 @@
-# Task Management App Documentation
+# TaskForge Documentation
 
 ## Introduction
 The Task Management App is a web application built with Django, a high-level Python web framework. This app provides functionalities to manage tasks, user registration, user authentication, and leave application management. It allows users to create, update, and track their tasks, while administrators can manage tasks and leave applications.
